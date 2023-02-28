@@ -5,8 +5,29 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>register</title>
+    <style>
+        body{
+            text-align: center;
+        }
+        form{
+            width: 30%;
+            margin: auto;
+            height: 150px;
+            border: 1px solid black;
+        }
+    </style>
 </head>
 <body>
-    
+    <h1>Register</h1>
+    <form onsubmit="register(event)">
+        <label>Name</label><br/>
+        <input id="userName" type="text"/><br/>
+        <label>Email</label><br/>
+        <input id="userEmail" type="email"/><br/>
+        <label>Password</label><br/>
+        <input id="userPassword" type="password"/><br/>
+        <input type="Submit" value="Register"/>
+    </form>
+    <script src="/server.js"></script>
 </body>
 </html>

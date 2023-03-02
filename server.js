@@ -5,7 +5,7 @@ function register(event){
     var userEmail = document.getElementById("userEmail").value;
     var userPassword = document.getElementById("userPassword").value;
     var userData = {name : userName, email : userEmail, password : userPassword}
-    //storing data from ls to js
+    //storing data from js to ls
     var dataFromLS = JSON.parse(localStorage.getItem("userData")) || [];
     console.log(dataFromLS, 'dataFromLS')
     var flag = false;
@@ -29,5 +29,31 @@ function register(event){
         window.location.href = "/login.html";
         alert("Registration done");
 
+    }
+}
+
+function login(event){
+    event.preventDefault();
+    var userEmail = document.getElementById("userEmail").value;
+    var userPassword = document.getElementById("userPassword").value;
+    var userData = {email : userEmail, password : userPassword}
+
+    var dataFromLS = JSON.parse(localStorage.getItem("userData")) || [];
+    console.log(dataFromLS, 'dataFromLS')
+    var flag = false;
+    for(var i = 0; i < dataFromLS.length; i++){
+        if(dataFromLS[i].email === userEmail && dataFromLS[i].password === userPassword){
+            flag = true;
+        }
+    }
+    if(flag === true){
+        alert("login succecfully")
+    } else {
+        dataFromLS.push(userData);
+        localStorage.setItem("userData",JSON.stringify(dataFromLS));
+        document.getElementById("userEmail").value =" ";
+        document.getElementById("userPassword").value = " ";
+        window.location.href = '/home.html';
+        alert("Wrong cred, Please check your email and password");
     }
 }

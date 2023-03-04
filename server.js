@@ -69,7 +69,10 @@ function forgetPassword(){
         }
     }
     if(flag === true){
-        window.location.href = '/newPassword.html';
+        var newCode = `<input type="password" id="password"/><br/><button onclick="newPassword()">Submit New Password</button>`
+        // window.location.href = '/newPassword.html';
+        var divFromHTML = document.getElementById("change")
+        divFromHTML.innerHTML = newCode;
         alert("Now Set new password...")
     }else{
         alert("Your email not in our db, check email again...")

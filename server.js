@@ -57,3 +57,25 @@ function login(event){
         alert("Wrong cred, Please check your email and password");
     }
 }
+
+function forgetPassword(){
+    var dataFromLS = JSON.parse(localStorage.getItem("userData"));
+
+    var userEmail = document.getElementById("email").value;
+    var flag = false;
+    for(var i=0; i<dataFromLS.length; i++){
+        if(dataFromLS[i].email === userEmail){
+            flag = true;
+        }
+    }
+    if(flag === true){
+        window.location.href = '/newPassword.html';
+        alert("Now Set new password...")
+    }else{
+        alert("Your email not in our db, check email again...")
+    }
+}
+
+function newPassword(){
+    
+}

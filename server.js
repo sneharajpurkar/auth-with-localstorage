@@ -34,8 +34,8 @@ function register(event){
 
 function login(event){
     event.preventDefault();
-    var userEmail = document.getElementById("userEmail").value;
-    var userPassword = document.getElementById("userPassword").value;
+    var userEmail = document.getElementById("email").value;
+    var userPassword = document.getElementById("password").value;
     var userData = {email : userEmail, password : userPassword}
 
     var dataFromLS = JSON.parse(localStorage.getItem("userData")) || [];
@@ -51,8 +51,8 @@ function login(event){
     } else {
         dataFromLS.push(userData);
         localStorage.setItem("userData",JSON.stringify(dataFromLS));
-        document.getElementById("userEmail").value =" ";
-        document.getElementById("userPassword").value = " ";
+        document.getElementById("email").value =" ";
+        document.getElementById("password").value = " ";
         window.location.href = '/home.html';
         alert("Wrong cred, Please check your email and password");
     }
